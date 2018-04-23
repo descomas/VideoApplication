@@ -1,4 +1,4 @@
-package com.example.desiree.videoapp;
+package com.example.desiree.videoapp3;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-        protected void onActivityResult(int requestCode, int resultCode, Intent data){
-            if(requestCode == START_CAMERMA_APPLICATION && resultCode == RESULT_OK){
-                Uri videoUri = data.getData();
-                mVideoView.setVideoURI(videoUri);
-            }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == START_CAMERMA_APPLICATION && resultCode == RESULT_OK){
+            Uri videoUri = data.getData();
+            mVideoView.setVideoURI(videoUri);
+        }
     }
 
     @Override
@@ -78,5 +79,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void uploadFunction(View view){
+        Toast.makeText(this,
+                "Unable to upload to server. Download later verision",Toast.LENGTH_SHORT).show();
     }
 }
